@@ -34,11 +34,34 @@ for(let i = 0; i<pokemon.length; i++ ){
     li.appendChild(num)
     pokemon[i].type.forEach(element => {
         let type = document.createElement('h5')
-        type.setAttribute('class','badge bg-dark w-12')
-        type.textContent=element;
+        type.setAttribute('class','badge bg-dark')
+        type.textContent= `type: ${element}`;
         li.appendChild(type)
     });
+
+    pokemon[i].weaknesses.forEach(wekkens => {
+        let wkns = document.createElement('h5');
+        wkns.setAttribute('class', 'badge bg-primary')
+        wkns.textContent = `weaknesses: ${wekkens}`;
+        li.appendChild(wkns)
+    });
+
+
+    pokemon[i]?.multipliers?.forEach(item => {
+        let nextevo = document.createElement('h5');
+        nextevo.setAttribute('class', 'badge bg-danger')
+        nextevo.textContent = `multipliers: ${item}`;
+        li.appendChild(nextevo)
+    });
+              
     
+       
+   
+
+    
+
+
+
     ul.appendChild(li)
 }
 
@@ -52,7 +75,7 @@ btn.addEventListener('click', (e)=>{
 
     let pokem = pokemon.find(item => item.name == SearchPokemon.value);
   
-     alert(` number:  ${pokem.num}, \n  name: ${pokem.name}, \n  height: ${pokem.height}, \n weight:  ${pokem.weight}, \n egg: ${pokem.egg}, \n weaknesses: ${pokem.weaknesses.join(' ')}` );
+     alert(` number:  ${pokem.num}, \n  name: ${pokem.name}, \n  height: ${pokem.height}, \n weight:  ${pokem.weight}, \n egg: ${pokem.egg}, \n weaknesses: ${pokem.weaknesses.join(' ')}`);
 })
 
   
